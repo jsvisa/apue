@@ -25,4 +25,4 @@ clean:
 	@echo "clean..."
 	rm *.o -f
 	rm $(LITAPPS)
-#	cd /usr/local; pwd
+

@@ -4,11 +4,13 @@
 #include <stdio.h>
 #include <signal.h>
 
-void sighandler(int sig) {
-	printf("I am thread:%d\n", pthread_self());
+void sighandler(int sig) 
+{
+	printf("I am thread:%d\n", (int)pthread_self());
 }
 
-void *mThread(void *args) {
+void *mThread(void *args) 
+{
 	pthread_detach(pthread_self());
     signal(SIGUSR1, sighandler);
 	printf("I am thread\n");
@@ -17,7 +19,8 @@ void *mThread(void *args) {
 	return NULL;
 }
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv) 
+{
 	pthread_t tid;
 
 	printf("PID:%d\n", getpid());
@@ -28,3 +31,4 @@ int main(int argc, char **argv) {
 	sleep(3);
 	return 0;
 }
+
