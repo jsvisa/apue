@@ -3,12 +3,12 @@ TARGET=thread_sig first_thread thread_arg pthread_join pthread_detach pthread_at
 	   max_thread3 max_thread4 threadsig mem_share open_thread pthread_mutex_pshared \
 	   thread pthread_create pthread_cancel
 
-CXX=g++
 CXXFLAGS=-g
 LDFLAGS=-lpthread
+CXX=g++
 
-all:${${TARGET}%.c}
-	${CXX} ${CXXFLAGS} ${all} ${LDFLAGS}
+all:${TARGET}
+#${CXX} ${CXXFLAGS} ${all} ${LDFLAGS}
 
 #thread_sig:thread_sig.o
 #thread:thread.o csocket.o
