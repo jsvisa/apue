@@ -18,11 +18,12 @@ lock3: filelock.o lock3.o
 
 ncurses: ncurses.o
 	gcc ncurses.o -lncurses -o ncurses
+serialio: serialio.h
 .c.o:
 	$(CC) $(CFLAGS) -c $^ -o $@
 
 clean:
 	@echo "clean..."
-	rm *.o -f
+	rm *.o 
 	rm $(LITAPPS)
 

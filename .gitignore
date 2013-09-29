@@ -5,6 +5,9 @@
 *.lib
 *.a
 
+.DS_Store
+tags
+
 # Shared objects (inc. Windows DLLs)
 *.dll
 *.so

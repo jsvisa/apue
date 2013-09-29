@@ -12,6 +12,9 @@
 #define MAXLINE 1024
 #define SERV_PORT 8888
 
+#ifdef OPEN_MAX
+#undef OPEN_MAX
+#endif
 #define OPEN_MAX 100
 
 typedef struct sockaddr SA;

@@ -73,7 +73,7 @@ int DoGet(int sock, char *req) {
 	}
 
 	fstat(fd, &st);
-	sprintf(resp, "200 OK %d\r\n", st.st_size);
+	sprintf(resp, "200 OK %d\r\n", (int)st.st_size);
 	msend(sock, resp);
 	while(1) {
 		size = read(fd, resp, sizeof(resp));

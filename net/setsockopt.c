@@ -1,7 +1,8 @@
 #include <stdio.h>
-#include "csocket.h"
+#include <string.h>
 #include <errno.h>
 #include <time.h>
+#include "csocket.h"
 
 int DoClient(int clientSock) {
 	struct timeval tv;

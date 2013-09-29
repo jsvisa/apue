@@ -2,6 +2,7 @@
 #include <arpa/inet.h>
 #include <sys/socket.h>
 #include <stdio.h>
+#include <string.h>
 #include <unistd.h>
 #include <netdb.h>
 #include <sys/un.h>

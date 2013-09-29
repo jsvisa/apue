@@ -1,6 +1,9 @@
-#include "csocket.h"
 #include <stdio.h>
 #include <sys/socket.h>
+#include <string.h>
+#include <stdlib.h>
+#include "csocket.h"
+
 #define MAXLINE 1024
 
 int main(int argc, char **argv) {
@@ -53,11 +56,11 @@ int main(int argc, char **argv) {
 			perror("setsockopt");
 			return -1;
 		}
-		printf("MSG_MAXIOVLEN IS %d\n", MSG_MAXIOVLEN);
 		char *ptr = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\r\n";
 		//memcpy(&sin, &sa, len);
 		printf("Accept connection: %s,%d\n", 
-				inet_ntop(AF_INET, &(sin.sin_addr), buf, 64), ntohs(sin.sin_port));
+			   inet_ntop(AF_INET, &(sin.sin_addr), buf, 64), 
+               ntohs(sin.sin_port));
 
 		while(1) {
 			len = send(client, ptr, 100, 0);
@@ -68,6 +71,7 @@ int main(int argc, char **argv) {
 			}
 			sleep(1);
 		}
+
 		memset(buf, 0, 1024);
 		recv(client, buf, 1024, 0);
 		printf("Recv:%s\n", buf);

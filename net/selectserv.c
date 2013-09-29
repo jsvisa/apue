@@ -8,6 +8,7 @@
 #include <sys/time.h>
 #include <errno.h>
 #include <stdio.h>
+#include <string.h>
 #include "csocket.h"
 
 #define MAX_CLIENTS 100

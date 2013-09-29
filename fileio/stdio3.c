@@ -6,6 +6,8 @@
 #include <string.h>
 #include <sys/time.h>
 #include <unistd.h>
+#include <time.h>
+#include <string.h>
 #include <stdlib.h>
 
 int main(int argc, char **argv) {
@@ -43,6 +45,7 @@ int main(int argc, char **argv) {
 		printf("Create file failed\n");
 		return 1;
 	}
+
 	buf = (char *)malloc(1024*1024*100);
 	memset(buf, 'b', 1024*1024*100);
 	gettimeofday(&tv, NULL);
@@ -55,3 +58,4 @@ int main(int argc, char **argv) {
 
 	return 0;
 }
+

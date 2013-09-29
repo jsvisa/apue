@@ -1,5 +1,6 @@
-#include "csocket.h"
 #include <stdio.h>
+#include <string.h>
+#include "csocket.h"
 
 #define MAXLINE 1024
 

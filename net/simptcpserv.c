@@ -6,6 +6,7 @@
 #include <sys/un.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int mBind(int sock, char *ip, int port) {
 	int len, ret;

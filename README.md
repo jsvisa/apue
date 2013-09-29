@@ -1,4 +1,4 @@
-apue
+#apue
 ====
 
-The  advanced programming Unix environment codes 
+Samples from the advanced programming Unix environment codes.

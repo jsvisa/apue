@@ -21,6 +21,6 @@ int main(int argc, char *argv[]) {
 		perror("stat failed");
 		return 0;
 	}
-	printf("file size:%d,uid:%d\n", st.st_size, st.st_uid);
+	printf("file size:%d,uid:%d\n", (int)st.st_size, (int)st.st_uid);
 	return 0;
 }

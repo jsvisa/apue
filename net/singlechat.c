@@ -1,5 +1,8 @@
-#include "csocket.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "csocket.h"
+
 #define MAXLINE 1024
 
 void doClient(int sock) {
@@ -24,7 +27,7 @@ void doClient(int sock) {
 			printf("Recv timeout\n");
 			break;
 		}
-		printf("tv.tv_sec=%d, tv.tv_usec=%d\n", tv.tv_sec, tv.tv_usec);
+		printf("tv.tv_sec=%d, tv.tv_usec=%d\n", (int)tv.tv_sec, (int)tv.tv_usec);
 		if(FD_ISSET(sock, &rset)) { //socket is readable
 			memset(recvline, 0, MAXLINE);
 			if(recv(sock, recvline, MAXLINE, 0) <= 0) {

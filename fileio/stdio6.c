@@ -1,6 +1,7 @@
 #include <sys/types.h>
 #include <fcntl.h>
 #include <stdio.h>
+#include <string.h>
 #include <errno.h>
 
 /* 执行：./stdio6 0 < /dev/tty  标准输入
@@ -14,7 +15,7 @@ int main(int argc, char **argv) {
 	int fd;
 
 	if(argc !=2 ) {
-		printf("Usage:%s <descriptor number>\n");
+		printf("Usage:%s <descriptor number>\n", "./stdio6");
 		return 0;
 	}
 	
@@ -46,3 +47,4 @@ int main(int argc, char **argv) {
 	}
 	return 0;
 }
+

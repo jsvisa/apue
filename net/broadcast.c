@@ -1,10 +1,11 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <sys/time.h>
+#include <time.h>
 #include <stdio.h>
 #include <string.h>
 #include <errno.h>
-#include <malloc.h>
 #include <pthread.h>
 
 struct udp_msg{
@@ -18,7 +19,7 @@ void *RecvThread(void *arg) {
 	socklen_t len;
 	int nSize;
 	char buf[1024];
-	sock = (int)arg;
+	sock = (int)(long)arg;
 
 	while(1) {
 		len = sizeof(addr);
