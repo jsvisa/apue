@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include <errno.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -21,13 +22,13 @@ int main(int argc, char **argv) {
 	key_t key;
 	char *ptr, *shmptr;
 
-	printf("array[] from %x to %x\n", &array[0], &array[ARRAY_SIZE]);
-	printf("stack around %x\n", &shmid);
+	printf("array[] from %p to %p\n", &array[0], &array[ARRAY_SIZE]);
+	printf("stack around %p\n", &shmid);
 	if((ptr = malloc(MALLOC_SIZE)) == NULL) {
 		printf("Malock failed:%s\n", strerror(errno));
 		exit(0);
 	}
-	printf("malloced from %x to %x\n", ptr, ptr+MALLOC_SIZE);
+	printf("malloced from %p to %p\n", ptr, ptr+MALLOC_SIZE);
 
 	close(open("shmseeg", O_WRONLY | O_CREAT, PERM_FILE));
 	key = ftok("shmseeg", 1);
@@ -40,7 +41,8 @@ int main(int argc, char **argv) {
 		printf("shmat error:%s\n", strerror(errno));
 		exit(0);
 	}
-	printf("shared memory attached from %x to %x\n", shmptr, shmptr+SHM_SIZE);
+	printf("shared memory attached from %p to %p\n", shmptr, shmptr+SHM_SIZE);
 	shmctl(shmid, IPC_RMID, 0);
-	exit(0);		
+	exit(0);	
+
 }

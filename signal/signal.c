@@ -60,7 +60,7 @@ int main(int argc, char **argv)
 
 //    pause();
 
-    printf("after %d seconds!\n", time(NULL) - start);
+    printf("after %ld seconds!\n", time(NULL) - start);
     return 0;
 }
 

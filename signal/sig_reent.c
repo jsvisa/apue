@@ -45,23 +45,23 @@ int main(int argc, char **argv)
         return -1;
     }
 
-	//将2改为30，然后执行此程序，并在30秒内使用kill
-	//指令向此进程发送SIGALRM信号，看看执行结果
-	alarm(6);
-	/*
-	for(i=0; i<50; i++) {
-		printf("i=%d\n", i);
-		sleep(1);
-	}
-	*/
-	while(1) {
-		pause();
-	}
+    //将2改为30，然后执行此程序，并在30秒内使用kill
+    //指令向此进程发送SIGALRM信号，看看执行结果
+    alarm(6);
+    /*
+    for(i=0; i<50; i++) {
+      printf("i=%d\n", i);
+      sleep(1);
+    }
+    */
+    while(1) {
+      pause();
+    }
 
     start = time(NULL);
 
-//    pause();
+    //pause();
 
-    printf("after %d seconds!\n",time(NULL)-start);
+    printf("after %ld seconds!\n", time(NULL) - start);
     return 0;
 }

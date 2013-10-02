@@ -6,6 +6,7 @@
 #include <fcntl.h>
 #include <sys/shm.h>
 #define PERM_FILE (S_IRUSR | S_IWUSR | S_IRGRP | S_IROTH)
+
 /*[pgm]*/
 int shmid;
 static int *getaddr(void)
@@ -24,7 +25,7 @@ static int *getaddr(void)
 	printf("shmid=%d\n", shmid);
 	p = shmat(shmid, NULL, 0);
 
-	printf("shared memory attached from %x\n", p);
+	printf("shared memory attached from %p\n", p);
 	return p;
 }
 

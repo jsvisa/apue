@@ -1,4 +1,4 @@
-//#include<unistd.h>
+#include<unistd.h>
 #include<stdio.h>
 #include<stdlib.h>
 #include<sys/types.h>
@@ -12,7 +12,8 @@ int main(int argc,char *argv[]) {
 	pid_t pid;
 	char buf[MAX];
 
-	printf("&buf[0]=%x, &pipe_fd[0]=%x, &size=%x, dist=%x\n", &buf[0], &pipe_fd[0], &size, (int)(&pipe_fd[0]) - (int)&buf[0]);
+	printf("&buf[0]=%p, &pipe_fd[0]=%p, &size=%p, dist=%d\n", &buf[0], &pipe_fd[0], &size, 
+         (int)(&pipe_fd[0]) - (int)&buf[0]);
 	/*
 	if(pipe(pipe_fd)<0){
 		perror("pipe");

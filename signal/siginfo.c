@@ -29,7 +29,7 @@ void sigHandler(int num, siginfo_t *info, void *ptr) {
 	struct TestS *s;
 	printf("signum is:%d \n", num);
 	printf("signo:%d, code:%d, spid:%d, uid:%d, utime:%d, stime:%d, val:%d\n", info->si_signo, info->si_code, 
-			info->si_pid, info->si_uid, info->si_utime, info->si_stime, info->si_value.sival_int);
+			info->si_pid, info->si_uid, (int)info->si_utime, (int)info->si_stime, (int)info->si_value.sival_int);
 	sleep(10);
 }
 

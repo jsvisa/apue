@@ -8,5 +8,5 @@ all:$(TARGET)
 signal:signal.c
 	$(CC) $(CFLAGS) signal.c -o signal
 clean:
-	rm *.o -f
-	rm $(TARGET) -f
+	-rm -f *.o 
+	-rm -f $(TARGET) 

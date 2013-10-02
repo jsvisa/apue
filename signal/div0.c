@@ -30,11 +30,12 @@ void testloop() {
 		printf("Sleep end\n");
 	}
 }
+
 int main(int argc, char **argv) {
 	int a;
 	a = 100/0;
 	printf("quit\n");
-	/*
+	
 	struct sigaction act, oact;
 	sigemptyset(&act.sa_mask);
     act.sa_flags |= SA_RESTART;
@@ -49,9 +50,10 @@ int main(int argc, char **argv) {
 		return 0;
 	}
 	testloop();
-	*/
+	
 //	printf("Set signal default\n");
 //	signal(SIGINT, SIG_DFL);
 //	getchar();
 	return 0;
 }
+
