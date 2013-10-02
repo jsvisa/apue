@@ -7,7 +7,7 @@
 #include "serialio.h"
 
 /****************************
- * serialio.cpp£ ´®¿ÚÍ¨ÓÃAPI*
+ * serialio.cpp? ????Í¨??API*
  * **************************/
 
 /** Set hardware flow control. 
@@ -21,7 +21,7 @@ void setHardwareFlow(int fd, int on) {
 #endif
 
 #ifdef POSIX_TERMIOS
-	tcgetattr(fd, &tty);
+    tcgetattr(fd, &tty);
 	if (on)
 		tty.c_cflag |= CRTSCTS;
 	else
@@ -323,12 +323,12 @@ int getMaxSpeed() {
 
 /*
  * Set baudrate, parity and number of bits.
- * fd - ÎÄ¼þÃèÊö·û
- * baudr - ²¨ÌØÂÊ£¬19200 38400£¬ 9600
- * par - Ð£Ñé£¬N-ÎÞÐ£Ñé£¬O-ÆæÐ£Ñé£¬E-Å¼Ð£Ñé£¬S-¿ÕÐ£Ñé
+ * fd - ?Ä¼???????
+ * baudr - ?????Ê£?19200 38400?? 9600
+ * par - Ð£?é£¬N-??Ð£?é£¬O-??Ð£?é£¬E-Å¼Ð£?é£¬S-??Ð£??
  * bit - 8
- * stopb - Í£Ö¹Î»£¬1
- * hwf,swf - Ó²¼þÁ÷¿Ø¿ª¹ØºÍÈí¼þÁ÷¿Ø¿ª¹Ø
+ * stopb - Í£Ö¹Î»??1
+ * hwf,swf - Ó²?????Ø¿??Øº????????Ø¿???
  */
 int setParams(int fd, long baudr, char par, int bit, int stopb, int hwf, int swf) {
 	int spd = -1;
@@ -693,3 +693,4 @@ int main(int argc, char **argv) {
 	}
 	return 0;
 }
+

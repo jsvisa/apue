@@ -1,6 +1,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <string.h>
 #include <errno.h>
 
 int main(int argc, char **argv) {
@@ -22,7 +23,7 @@ int main(int argc, char **argv) {
 			printf("Your input is %s\n", buf);
 		}
 		else {
-			printf("Read nothing, errno:%d, str:%s\n", errno, strerror(errno));
+			printf("Read nothing, errno:%d, str:%s\n", (int)errno, strerror(errno));
 			sleep(1);
 		}
 	}

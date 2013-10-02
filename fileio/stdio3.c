@@ -49,10 +49,10 @@ int main(int argc, char **argv) {
 	buf = (char *)malloc(1024*1024*100);
 	memset(buf, 'b', 1024*1024*100);
 	gettimeofday(&tv, NULL);
-	printf("Start time:\t%d.%d\n", tv.tv_sec, tv.tv_usec);
+	printf("Start time:\t%d.%d\n", (int)tv.tv_sec, (int)tv.tv_usec);
 	write(fd, buf, 1024*1024*100);
 	gettimeofday(&tv, NULL);
-	printf("End time:\t%d.%d\n", tv.tv_sec, tv.tv_usec);
+	printf("End time:\t%d.%d\n", (int)tv.tv_sec, (int)tv.tv_usec);
 	free(buf);
 	close(fd);
 
