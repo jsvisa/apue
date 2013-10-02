@@ -26,5 +26,5 @@ gethostbyname:gethostbyname.o csocket.o
 sendudp:sendudp.o csocket.o
 
 clean:
-	rm -rf *.dSYM 
-	rm *.o $(TARGET) 
+	-rm -rf *.dSYM 
+	-rm *.o $(TARGET) 

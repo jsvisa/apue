@@ -1,8 +1,12 @@
+src = $(wildcard *.cpp)
+obj = $(src:.cpp=.o)
+
 CC=g++
 CXXFLAGS=-g
 LDFLAGS=-lpthread
 
-rtspserver: rtspserver.o rtspsession.o rtpsession.o main.o socketxx.o
+rtspserver: $(obj)
 
+.PHONY: clean
 clean:
-	rm *.o rtspserver -f
+	-rm *.o rtspserver 

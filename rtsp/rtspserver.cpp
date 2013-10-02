@@ -8,7 +8,7 @@ void *ClientThread(void *arg)
 
 	pthread_detach(pthread_self());
 
-	sock = (int)arg;
+	sock = (int)(long)arg;
 	RtspSession session;
 	session.DoSession(sock);
 	return NULL;
