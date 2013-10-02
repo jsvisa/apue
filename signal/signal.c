@@ -10,7 +10,7 @@ void alarm_handler( int num )
 {
     printf("In SIGALRM handler:%d\n", i);
 	sleep(10);
-//	printf("Start to sleep...\n");
+    printf("Start to sleep...\n");
 }
 
 //SIGINT信号的处理函数
@@ -30,7 +30,6 @@ int main(int argc, char **argv)
     __sighandler_t ret;
     time_t  start;
 
-	
     ret = signal( SIGALRM, alarm_handler);
     if ( SIG_ERR == ret ){
         printf("registr alarm handler failed!\n");
@@ -61,6 +60,7 @@ int main(int argc, char **argv)
 
 //    pause();
 
-    printf("after %d seconds!\n",time(NULL)-start);
+    printf("after %d seconds!\n", time(NULL) - start);
     return 0;
 }
+
