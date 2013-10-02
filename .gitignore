@@ -5,6 +5,7 @@
 *.lib
 *.a
 
+*.dSYM/
 .DS_Store
 tags
 
