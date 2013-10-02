@@ -16,7 +16,7 @@ void *thread_one(void * arg)
 	pthread_cond_wait(&cond, &lock);
 	pthread_mutex_unlock(&lock);
 
-	printf("Thread %u start...\n", pthread_self());
+	printf("Thread %ld start...\n", pthread_self());
 	usleep(10000);
 	
 	while(1) {
@@ -30,7 +30,7 @@ void *thread_one(void * arg)
 			break;
 		}
 	}
-	printf("Thread %u, k=%d\n", pthread_self(), k);
+	printf("Thread %ld, k=%d\n", pthread_self(), k);
 
 	return NULL;
 }

@@ -15,12 +15,12 @@ void * thread_func(void *arg)
 {
 	char buf[200];
 
-	printf("start lock...%llu\n", pthread_self());
+	printf("start lock...%ld\n", pthread_self());
 	if(pthread_mutex_lock(&lock) == 0) {
-		printf("lock success...%llu\n", pthread_self());
+		printf("lock success...%ld\n", pthread_self());
 		count++;
 		if(pthread_mutex_lock(&lock) == 0) {
-			printf("lock success...%llu\n", pthread_self());
+			printf("lock success...%ld\n", pthread_self());
 			pthread_mutex_unlock(&lock);
 		}
 		else {
@@ -29,10 +29,10 @@ void * thread_func(void *arg)
 		sleep(3);
 
 		pthread_mutex_unlock(&lock);
-		printf("unlocked %llu\n", pthread_self());
+		printf("unlocked %ld\n", pthread_self());
 	}
 	else {
-		printf("try lock failed...%llu\n", pthread_self());
+		printf("try lock failed...%ld\n", pthread_self());
 	}
 	return NULL;
 }

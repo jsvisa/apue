@@ -10,5 +10,4 @@ dbsys: dbsys.o main.o shellsys.o crc16.o filelock.o
 
 clean:
 	@echo "clean..."
-	rm *.o -f
-	rm $(LITAPPS)
+	-rm -f *.o $(LITAPPS)

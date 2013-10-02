@@ -10,7 +10,7 @@ void *thread_one(void * arg)
 {
 //	pthread_detach(pthread_self());
 	k = k+1;
-	printf("Thread %u, num=%d\n", pthread_self(), k);
+	printf("Thread %ld, num=%d\n", pthread_self(), k);
 
 	sleep(k);
 	return NULL;

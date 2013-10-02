@@ -13,7 +13,7 @@ void *thread_one(void * arg)
 	num = (int *)arg;
 //	pthread_detach(pthread_self());
 	//pthread_mutex_lock(&lock);
-	printf("Thread %u, num=%d\n", pthread_self(), *num);
+	printf("Thread %ld, num=%d\n", pthread_self(), *num);
 	//pthread_mutex_unlock(&lock);
 	sleep(*num);
 	free(num);

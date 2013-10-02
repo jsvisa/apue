@@ -1,9 +1,9 @@
 TARGET=demo sqlstep sqlite_bind sqlite_open
 all:$(TARGET)
-CFLAGS=-g -I/usr/local/include/
+CFLAGS=-g -I/usr/local/include/ 
 CXXFLAGS=-g -I/usr/local/include/
 
-LDFLAGS= -lsqlite3 -lpthread
+LDFLAGS= -lsqlite3 -pthread
 CC=g++
 
 demo:demo.o msqlite.o

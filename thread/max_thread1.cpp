@@ -12,10 +12,10 @@ void *thread_one(void * arg)
 {
 	int *num;
 	num = (int *)arg;
-	//*num = *num+1;
-//	pthread_detach(pthread_self());
-	//pthread_mutex_lock(&lock);
-	printf("Thread %u, num=%d\n", pthread_self(), *num);
+	// *num = *num+1;
+    // pthread_detach(pthread_self());
+	// pthread_mutex_lock(&lock);
+	printf("Thread %ld, num=%d\n", pthread_self(), *num);
 
 	//pthread_mutex_unlock(&lock);
 

@@ -22,21 +22,21 @@ void * wake_thread (void *arg)
 
 	status = pthread_mutex_lock (&data.mutex); 
 	if (status != 0) {
-		printf("[%llu]Lock mutex failed!\n", pthread_self()); 
+		printf("[%ld]Lock mutex failed!\n", pthread_self()); 
 		return NULL;
 	}
 
 	data.value = 1; 
-	printf("[%llu]send cond signal...\n", pthread_self());
+	printf("[%ld]send cond signal...\n", pthread_self());
 	status = pthread_cond_signal (&data.cond); 
 //	status = pthread_cond_broadcast(&data.cond); 
 	if (status != 0) {
-		printf("[%llu]Signal condition failed!\n", pthread_self()); 
+		printf("[%ld]Signal condition failed!\n", pthread_self()); 
 		return NULL;
 	}
 	status = pthread_mutex_unlock (&data.mutex); 
 	if (status != 0) {
-		printf("[%llu]Unlock mutex failed!\n", pthread_self()); 
+		printf("[%ld]Unlock mutex failed!\n", pthread_self()); 
 		return NULL;
 	}
 
@@ -45,9 +45,9 @@ void * wake_thread (void *arg)
 
 void *threadTwo(void *args) {
 	pthread_mutex_lock (&data.mutex); 
-	printf("[%llu]Thread Wait for condition...\n", pthread_self());
+	printf("[%ld]Thread Wait for condition...\n", pthread_self());
 	pthread_cond_wait(&data.cond, &data.mutex); 
-	printf("[%llu]Thread received the cond signal\n", pthread_self());
+	printf("[%ld]Thread received the cond signal\n", pthread_self());
 	pthread_mutex_unlock (&data.mutex); 
 }
 int main (int argc, char *argv[]) 
@@ -59,12 +59,12 @@ int main (int argc, char *argv[])
 	if (argc > 1) 
 		hibernation = atoi (argv[1]); //Ë¯Ãß
 
-	printf("[%llu]Main process start...\n", pthread_self());
+	printf("[%ld]Main process start...\n", pthread_self());
 
 	status = pthread_create (&threadId, NULL, wake_thread, NULL); 
 	status = pthread_create (&threadId, NULL, threadTwo, NULL); 
 	if (status != 0) {
-		printf("[%llu]Create wait thread failed!\n", pthread_self()); 
+		printf("[%ld]Create wait thread failed!\n", pthread_self()); 
 		return -1;
 	}
 
@@ -74,29 +74,29 @@ int main (int argc, char *argv[])
 	while (data.value == 0) { 
 		status = pthread_mutex_lock (&data.mutex); 
 		if (status != 0){ 
-			printf("[%llu]Lock mutex failed!\n", pthread_self()); 
+			printf("[%ld]Lock mutex failed!\n", pthread_self()); 
 		}
-		printf("[%llu]Main process Wait for condition...\n", pthread_self());
+		printf("[%ld]Main process Wait for condition...\n", pthread_self());
 		status = pthread_cond_timedwait (&data.cond, &data.mutex, &timeout); 
 //		status = pthread_cond_wait (&data.cond, &data.mutex); 
-		printf("[%llu]Main process wakeup now\n", pthread_self());
+		printf("[%ld]Main process wakeup now\n", pthread_self());
 		if (status == ETIMEDOUT) { 
-			printf("[%llu]Main process Condition wait timed out.\n", pthread_self()); 
+			printf("[%ld]Main process Condition wait timed out.\n", pthread_self()); 
 			break; 
 		} 
 		else if (status != 0){ 
-			printf("[%llu]Main process Wait on condition failed!\n", pthread_self()); 
+			printf("[%ld]Main process Wait on condition failed!\n", pthread_self()); 
 		}
 		pthread_mutex_unlock(&data.mutex);
 	}
 
 	if (data.value != 0) {
-		printf ("[%llu]Condition was signaled.\n", pthread_self()); 
+		printf ("[%ld]Condition was signaled.\n", pthread_self()); 
 	}
 
 	status = pthread_mutex_unlock (&data.mutex); 
 	if (status != 0){ 
-		printf("[%llu]Unlock mutex failed!\n", pthread_self()); 
+		printf("[%ld]Unlock mutex failed!\n", pthread_self()); 
 		return -1;
 	}
 	getchar();

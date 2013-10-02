@@ -13,7 +13,7 @@ void *thread_one(void * arg)
 	usleep(500);
 //	pthread_detach(pthread_self());
 	k = k+1;
-	printf("Thread %u, num=%d\n", pthread_self(), k);
+	printf("Thread %ld, num=%d\n", pthread_self(), k);
 	pthread_mutex_lock(&lock);
 	pthread_cond_signal(&cond);
 	printf("Send signal...\n");
